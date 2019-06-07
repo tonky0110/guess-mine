@@ -10,3 +10,5 @@ Realtime Drawing Game built with SocketIO, Gulp and Node
 - [x] Static
 - [x] ESLint
 - [ ] SocketIO
+    http: stateless(get/put/post/...)
+    ws: stateful
