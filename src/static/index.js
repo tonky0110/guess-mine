@@ -13,6 +13,6 @@ function setNickname(nickname) {
 
 function handleMessageNotif(data) {
 	const { message, nickname } = data;
-	console.log(`${nickname} said ${message}`);
+	console.log(`${nickname}: ${message}`);
 }
 socket.on('messageNotif', handleMessageNotif);
