@@ -17,4 +17,10 @@ const server = app.listen(PORT, handleListening);
 
 const io = socketIO.listen(server);
 
-io.on('connection', () => console.log('Somebody connected'));
+let sockets = [];
+
+io.on('connection', (socket) => {
+	sockets.push(socket.id);
+});
+
+setInterval(() => console.log(sockets), 1000);
