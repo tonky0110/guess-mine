@@ -21,6 +21,12 @@ let sockets = [];
 
 io.on('connection', (socket) => {
 	socket.on('newMessage', ({ message }) => {
-		console.log('new Message received.: ', message);
+		socket.broadcast.emit('messageNotif', {
+			message,
+			nickname: socket.nickname || 'Anon'
+		});
+	});
+	socket.on('setNickname', ({ nickname }) => {
+		socket.nickname = nickname;
 	});
 });
