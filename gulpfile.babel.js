@@ -14,12 +14,10 @@ const paths = {
 	}
 };
 
-function clean() {
-	return del([ 'src/static' ]);
-}
+const clean = () => del([ 'src/static' ]);
 
-function styles() {
-	return gulp
+const styles = () =>
+	gulp
 		.src(paths.styles.src)
 		.pipe(sass())
 		.pipe(
@@ -29,11 +27,8 @@ function styles() {
 		)
 		.pipe(minifyCSS())
 		.pipe(gulp.dest(paths.styles.dest));
-}
 
-function watchFiles() {
-	gulp.watch(paths.styles.watch, styles);
-}
+const watchFiles = () => gulp.watch(paths.styles.watch, styles);
 
 const dev = gulp.series([ clean, styles, watchFiles ]);
 
