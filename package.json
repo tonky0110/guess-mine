@@ -24,17 +24,14 @@
 		"socket.io": "^2.2.0"
 	},
 	"scripts": {
-		"dev:server": "nodemon --exec babel-node src/server",
-		"dev:assets": "gulp"
+		"dev:server": "nodemon --exec babel-node src/server --ignore assets/ --ignore src/static",
+		"dev:assets": "gulp",
+		"build": "gulp build"
 	},
 	"devDependencies": {
 		"eslint-config-prettier": "^4.3.0",
 		"eslint-plugin-prettier": "^3.1.0",
 		"prettier": "^1.18.2"
 	},
-	"browserslist": [
-		"last 1 version",
-		"> 1%",
-		"IE 10"
-	]
+	"browserslist": [ "last 1 version", "> 1%", "IE 10" ]
 }
