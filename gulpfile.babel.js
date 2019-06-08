@@ -1,5 +1,8 @@
 import gulp from 'gulp';
 import sass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+
+sass.compiler = require('node-sass');
 
 const paths = {
 	styles: {
@@ -9,5 +12,13 @@ const paths = {
 };
 
 export function styles() {
-	return gulp.src(paths.styles.src).pipe(sass()).pipe(gulp.dest(paths.styles.dest));
+	return gulp
+		.src(paths.styles.src)
+		.pipe(sass())
+		.pipe(
+			autoprefixer({
+				cascade: false
+			})
+		)
+		.pipe(gulp.dest(paths.styles.dest));
 }
