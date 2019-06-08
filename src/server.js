@@ -20,5 +20,5 @@ const io = socketIO.listen(server);
 let sockets = [];
 
 io.on('connection', (socket) => {
-	setTimeout(() => socket.broadcast.emit('hello'), 5000);
+	socket.on('helloGuys', () => console.log('the client said hello'));
 });
