@@ -20,5 +20,7 @@ const io = socketIO.listen(server);
 let sockets = [];
 
 io.on('connection', (socket) => {
-	socket.on('helloGuys', () => console.log('the client said hello'));
+	socket.on('newMessage', ({ message }) => {
+		console.log('new Message received.: ', message);
+	});
 });
