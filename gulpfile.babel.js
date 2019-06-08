@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import minifyCSS from 'gulp-csso';
+import del from 'del';
 
 sass.compiler = require('node-sass');
 
@@ -12,6 +13,10 @@ const paths = {
 		watch: 'assets/scss/**/*.scss'
 	}
 };
+
+function clean() {
+	return del([ 'src/static' ]);
+}
 
 function styles() {
 	return gulp
@@ -30,6 +35,6 @@ function watchFiles() {
 	gulp.watch(paths.styles.watch, styles);
 }
 
-const dev = gulp.series([ styles, watchFiles ]);
+const dev = gulp.series([ clean, styles, watchFiles ]);
 
 export default dev;
